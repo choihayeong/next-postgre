@@ -9,7 +9,7 @@ export default async function Table() {
   let startTime = Date.now()
 
   try {
-    data = await sql`SELECT * FROM cars`
+    data = await sql`SELECT * FROM users`
   } catch (e: any) {
     if (e.message.includes('relation "users" does not exist')) {
       console.log(
@@ -18,7 +18,7 @@ export default async function Table() {
       // Table is not created yet
       await seed()
       startTime = Date.now()
-      data = await sql`SELECT * FROM cars`
+      data = await sql`SELECT * FROM users`
     } else {
       throw e
     }
